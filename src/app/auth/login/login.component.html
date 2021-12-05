@@ -1,0 +1,32 @@
+<div class="container">
+    
+    <!-- <br/>
+    <br/> -->
+
+    <div *ngIf="accessToken==='null'">
+
+        <div class="alert alert-primary" role="alert">
+            No estás autenticado(a), ¡inicia sesión o regístrate!
+        </div>
+
+        <form (submit)="getValues()">
+            <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Dirección Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="email">
+            <div id="emailHelp" class="form-text">Nunca compartiremos tu Email con nadie más.</div>
+            </div>
+            <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="password">
+            </div>
+            <div class="espacio">
+                <button type="submit" class="btn btn-primary" >Iniciar Sesión</button>
+                
+                <button type="button" class="btn btn-danger" [routerLink]="['register']">Registrarse</button>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="accessToken!=='null'">
+        <app-account></app-account>
+    </div>
+</div>
